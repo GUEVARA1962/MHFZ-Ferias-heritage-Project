@@ -2339,8 +2339,8 @@ function (evt) {
 				SkillForm["b_" + select_name[i] + "_list"].value = SkillForm["b_" + select_name[i]].value;
 			}
 		}
-		var tg = document.getElementById("f3");
-		tg.action = "download.cgi";
+		var tg = document.getElementById("b_save");
+		tg.action = "skill/download.cgi";
 		tg.encoding = "application/x-www-form-urlencoded";
 		tg=null;
 		break;
@@ -2357,7 +2357,7 @@ function (evt) {
 	case "c_tume":
 	case "c_soko":
 	case "c_kizuna":
-		SkillForm.calcDef();
+		SkillForm.calcDef()
 		break;
 	case "c_buki":
 		t.select();
@@ -2434,29 +2434,46 @@ var change_event = function (evt) {
 		SkillForm.cngData(t.id.substring(2,t.id.length-2));
 		SkillForm.calc();
 		break;
-	case "b_read":
-		var tg = document.getElementById("f3");
-		tg.action = "upload.cgi";
-		tg.encoding = "multipart/form-data";
-		tg.submit();
-		tg=null;
-		break;
-	case "c_G_Que":
-		SkillForm.cngFueExe();
-	case "c_G_Fit":
-		SkillForm.calc();
-	case "c_mesi":
-	case "c_sr":
-	case "c_tane":
-	case "c_drink":
-	case "c_fueDEF":
-	case "c_fueDEF_G":
-	case "c_fueTAI":
-	case "c_buki":
-	case "c_shien":
-	case "c_katsu":
-		SkillForm.calcDef();
-		break;
+		case "b_read":
+			/*
+			var tg = document.getElementById("f3");
+			tg.action = "upload.cgi";
+			tg.encoding = "multipart/form-data";
+			tg.submit();
+			tg=null;
+			*/
+		
+			var file = evt.target.files[0];
+		
+			if(file.type !== "text/plain") {
+			  alert("保存したテキストファイルを選択してください。");
+			  document.getElementById("b_read").value="";
+			  return;
+			}
+		
+			//FileReaderの作成
+			var reader = new FileReader();
+			//テキスト形式で読み込む
+			reader.readAsText(file, 'SJIS');
+		
+			//読込終了後の処理
+			reader.onload = function(ev){
+			  var text = reader.result.split("\r\n")[0];
+			  var data = "";
+		
+			  if(!text || !text.match("^###data ")) {
+				alert("保存したテキストファイルを選択してください。");
+				document.getElementById("b_read").value="";
+				return;
+			  }
+				
+			  data = text.split("###")[2];
+		
+			  var url = document.URL.replace(/\?.*$/,"");;
+			  location.href = url + "?" + data;
+			}
+		
+			break;
 	}
 }
 addEvent(document.getElementById("c_hr"),"change",change_event);
