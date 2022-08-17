@@ -2340,7 +2340,7 @@ function (evt) {
 			}
 		}
 		var tg = document.getElementById("b_save");
-		tg.action = "skill/download.cgi";
+		tg.action = "http://ferias.life.coocan.jp/skill/download.cgi";
 		tg.encoding = "application/x-www-form-urlencoded";
 		tg=null;
 		break;
