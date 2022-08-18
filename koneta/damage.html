@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=shift_JIS">
+<style type="text/css">
+<!--
+th {white-space:nowrap;font-weight:normal;background-color:silver;}
+input#bou,input#tai {text-align:right}
+td {text-align:center}
+td.n {text-align:right;}
+-->
+</style>
+<title>プレイヤーのダメージ</title>
+</head><body>
+<div>受けるダメージ(dosの情報)</div>
+<p>
+・プレイヤーが受けるダメージの計算式<br>
+　軽減率 ＝ 1 － (防御力の半分 ÷ (防御力の半分 ＋ 80))<br>
+　ダメージ ＝ モンスターの攻撃力 × 軽減率
+　　<small>※モンスターの攻撃力は、固体別の攻撃力倍率・怒り倍率で増加する</small>
+</p><p>
+・攻撃が属性付きの攻撃だった場合、さらに耐性により増減<br>
+　ダメージ ＝ ダメージ × (1 － (耐性値 ÷ 100))
+　　<small>※耐性がマイナスの場合はダメージが増える<br><br>
+　　理論上、耐性値が100なら属性付きダメージの場合、ゼロになる</small>
+</p>
+<table>
+<tr><td>
+防御力：<input id=bou type=text onfocus="this.select()" maxlength=4 size=4 value=0>
+耐性：<input id=tai type=text onfocus="this.select()" maxlength=3 size=3 value=0>
+<input type=button value="計算" OnClick="document.getElementById('mu').innerHTML = (10000 - Math.floor(document.getElementById('bou').value / 2 / (document.getElementById('bou').value / 2 + 80) * 10000)) / 100;document.getElementById('zo').innerHTML = Math.floor((10000 - Math.floor(document.getElementById('bou').value / 2 / (document.getElementById('bou').value / 2 + 80) * 10000)) * (100 - document.getElementById('tai').value) / 100) / 100;"></td>
+<td>無属性のダメージは 約</td><td class=n><span id=mu>100</span>%に軽減される</td></tr>
+<tr><td></td><td>属性付きダメージは 約</td><td class=n><span id=zo>100</span>%に軽減される</td></tr>
+</table>
+<div>防御力によるダメージの軽減率をグラフにすると以下のとおり。</div>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>防御力</th><th>軽減率<br>(%)</th><th rowspan=22><img src="../img/damage.gif" alt="ダメージ表"></th></tr>
+<tr><td>1</td><td>99.3</td></tr>
+<tr><td>50</td><td>76.1</td></tr>
+<tr><td>100</td><td>61.5</td></tr>
+<tr><td>150</td><td>51.6</td></tr>
+<tr><td>200</td><td>44.4</td></tr>
+<tr><td>250</td><td>39</td></tr>
+<tr><td>300</td><td>34.7</td></tr>
+<tr><td>350</td><td>31.3</td></tr>
+<tr><td>400</td><td>28.5</td></tr>
+<tr><td>450</td><td>26.2</td></tr>
+<tr><td>500</td><td>24.2</td></tr>
+<tr><td>550</td><td>22.5</td></tr>
+<tr><td>600</td><td>21</td></tr>
+<tr><td>650</td><td>19.7</td></tr>
+<tr><td>700</td><td>18.6</td></tr>
+<tr><td>750</td><td>17.5</td></tr>
+<tr><td>800</td><td>16.6</td></tr>
+<tr><td>850</td><td>15.8</td></tr>
+<tr><td>900</td><td>15</td></tr>
+<tr><td>950</td><td>14.4</td></tr>
+<tr><td>1000</td><td>13.7</td></tr>
+</table>
+</body>
+</html>
