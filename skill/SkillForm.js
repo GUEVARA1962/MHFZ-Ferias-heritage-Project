@@ -2339,7 +2339,7 @@ function (evt) {
 				SkillForm["b_" + select_name[i] + "_list"].value = SkillForm["b_" + select_name[i]].value;
 			}
 		}
-		var tg = document.getElementById("f3");
+		var tg = document.getElementById("b_save");
 		tg.action = "http://ferias.life.coocan.jp/skill/download.cgi";
 		tg.encoding = "application/x-www-form-urlencoded";
 		tg=null;
