@@ -108,7 +108,7 @@ var creMosLink = function (data,obj) {
 	if (!data) return;
 	for (var i = 0,list = data.split(","),m = list.length,txt = ""; i < m; i++) {
 		var w = list[i].split("|");
-		txt += "<a href=\"../mons/" + w[0] + "_h.htm\">" + MST_Mos.Name[w[0]] + "</a> " + w[1] + "<br>";
+		txt += "<a href=\"../mons/" + w[0] + "_h.html\">" + MST_Mos.Name[w[0]] + "</a> " + w[1] + "<br>";
 	}
 	obj.innerHTML = txt;
 }
