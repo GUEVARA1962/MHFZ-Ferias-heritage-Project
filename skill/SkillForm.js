@@ -2322,28 +2322,48 @@ function (evt) {
 		SkillForm.dispData(SkillForm[t.id.substring(0,t.id.length-2)].value.substring(0,4),SkillForm[t.id.substring(0,t.id.length-2)].id.substring(2),SkillForm[t.id.substring(0,t.id.length-2)].value.substring(5,6));
 		break;
 	case "b_save":
-		SkillForm.b_skill.value = SkillForm.creText().replace(/<br>/g,"\n");
+		SkillForm.b_skill.value = SkillForm.creText().replace(/<br>/g, "\n");
 
-		var select_name = ["buki","head","body","arm","wst","leg","cuff"];
-		if(window.confirm("全て保存しますか？\nOK:全て キャンセル:表示分のみ")){
-			for (var i = 0,m = select_name.length; i < m; i++) {
+		var select_name = ["buki", "head", "body", "arm", "wst", "leg", "cuff"];
+		var fileContent = "###data 変更しないで###";
+
+		if (window.confirm("全て保存しますか？\nOK:全て キャンセル:表示分のみ")) {
+			for (var i = 0, m = select_name.length; i < m; i++) {
 				var wk = "";
-				//武器カフの最後の行は要らない(セットのみだったらいる)
-				for (var j = 0,n = SkillForm["b_" + select_name[i]].length - ((i===0 || i===6) && SkillForm["b_" + select_name[i]].length !== 1 ? 1 : 0); j < n; j++) {
+				// 武器カフの最後の行は要らない(セットのみだったらいる)
+				for (var j = 0, n = SkillForm["b_" + select_name[i]].length - ((i === 0 || i === 6) && SkillForm["b_" + select_name[i]].length !== 1 ? 1 : 0); j < n; j++) {
 					wk += "/" + SkillForm["b_" + select_name[i]].options[j].value;
 				}
 				SkillForm["b_" + select_name[i] + "_list"].value = wk.substring(1);
+				fileContent += wk.substring(1) + (i < m - 1 ? "|" : ""); // Add | separator except for the last element
 			}
 		} else {
-			for (var i = 0,m = select_name.length; i < m; i++) {
+			for (var i = 0, m = select_name.length; i < m; i++) {
 				SkillForm["b_" + select_name[i] + "_list"].value = SkillForm["b_" + select_name[i]].value;
+				fileContent += SkillForm["b_" + select_name[i]].value + (i < m - 1 ? "|" : ""); // Add | separator except for the last element
 			}
 		}
-		var tg = document.getElementById("f3");
-		tg.action = "download.cgi";
-		tg.encoding = "application/x-www-form-urlencoded";
-		tg=null;
+
+		fileContent += "###\n###テキスト###\n";
+
+		// 動的に生成されるテキスト部分を追加
+		fileContent += SkillForm.creText().replace(/<br>/g, "\n");
+
+		// テキストファイルを生成し、ダウンロードを促す
+		var blob = new Blob([fileContent], { type: "text/plain" });
+		var url = URL.createObjectURL(blob);
+		var a = document.createElement("a");
+		a.href = url;
+		a.download = "セット.txt";
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
 		break;
+
+
+	
+
 	case "b_text":
 		var f4=window.open("","");
 		f4.document.open("text/html; charset=Shift_JIS");
