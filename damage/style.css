@@ -2,7 +2,7 @@
 html,body {margin:5px;}
 th {text-align:center;white-space:nowrap;font-weight:normal;background-color:silver;}
 td {white-space:nowrap;padding:0 2px;border-color:silver;}
-select {font-family:"‚l‚r ƒSƒVƒbƒN";}
+select {font-family:"ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯";}
 .t {text-align:center;background-color:silver;}
 .box {padding:0 0.4em;border-collapse:collapse;border:2px ridge #333333;background-color:silver;}
 #d_slot,#g_att,#g_attB {text-align:center;}
@@ -18,24 +18,24 @@ select {font-family:"‚l‚r ƒSƒVƒbƒN";}
 .stop2 {color:blue;}
 .stop1 {color:green;}
 .stop0 {color:gray;}
-.aj1:after {content:"[a]";font-size: x-small;}
-.aj2:after {content:"[‘Å]";font-size: x-small;}
-.aj3:after {content:"[’e]";font-size: x-small;}
+.aj1:after {content:"[æ–¬]";font-size: x-small;}
+.aj2:after {content:"[æ‰“]";font-size: x-small;}
+.aj3:after {content:"[å¼¾]";font-size: x-small;}
 
 #niku .dai {background-color:silver;white-space:normal;}
 #niku tr>td:first-child {background-color:silver;white-space:normal;}
 #niku .suu {text-align:right;}
 #niku tr>td+td {text-align:right;}
 
-.fss {font-size:60%;} /*¬‚³‚ß•¶š*/
+.fss {font-size:60%;} /*å°ã•ã‚æ–‡å­—*/
 #d_doc {height:16px;font-size:80%;}
 /*#d_spec {}*/
 #c_sinka {font-size:85%;}
 #sub_WinBody .rep td {vertical-align:bottom;}
 #sub_WinBody .rep td {vertical-align:top;}
 #sub_WinBody .sozai td {vertical-align:top;}
-/*•Šíˆê——‚æ‚è*/
-/*“J*/
+/*æ­¦å™¨ä¸€è¦§ã‚ˆã‚Š*/
+/*ç¬›*/
 #d_spec .f {background-color:silver;}
 #d_spec .fr {color:red;}
 #d_spec .fb {color:blue;}
@@ -44,7 +44,7 @@ select {font-family:"‚l‚r ƒSƒVƒbƒN";}
 #d_spec .fg {color:lime;}
 #d_spec .fa {color:aqua;}
 #d_spec .fp {color:fuchsia;}
-/*ƒQ[ƒW—p*/
+/*ã‚²ãƒ¼ã‚¸ç”¨*/
 #d_spec ul {margin:0;padding:1px 0;height:10px;width:101px;list-style-type:none;font-size:1px;background-color:slategray;}
 #d_spec .r {float:left;height:10px;background-color:red;}
 #d_spec .o {float:left;height:10px;background-color:orange;}

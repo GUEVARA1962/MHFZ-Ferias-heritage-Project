@@ -1,18 +1,18 @@
-/*‹¤’Ê*/
+/*å…±é€š*/
 th {text-align:center;white-space:nowrap;font-weight:normal;background-color:silver;}
 th,td {vertical-align:top;white-space:nowrap;padding:2px;}
 thead {height:2.4em;}
 html,body {height:100%; overflow:hidden;}
 body {margin:5px; padding:0;}
 table {table-layout:fixed;margin-bottom:60em;}
-td {border-color:#c0c0c0;} /*FF,Opera‚ÌŒrü‘Î‰*/
+td {border-color:#c0c0c0;} /*FF,Operaã®ç½«ç·šå¯¾å¿œ*/
 
 #tree {height:99%;width:20%;overflow:scroll;float:left;white-space:nowrap;line-height:100%;}
 #tree small {font-size:60%;}
-#tree em {display: inline;font-style: normal;color:darkred;font-size:60%} /*•â‘«*/
+#tree em {display: inline;font-style: normal;color:darkred;font-size:60%} /*è£œè¶³*/
 #tree a {text-decoration:none;}
 #tree a:link,#tree a:visited {color:blue;}
-#tree a.new:link,#tree a.new:visited,td.new:first-line {color:crimson;} /*V•Ší*/
+#tree a.new:link,#tree a.new:visited,td.new:first-line {color:crimson;} /*æ–°æ­¦å™¨*/
 #tree a:hover {color:red;}
 #tree a:active {color:black;}
 #tree span,#top small span {padding:2px;color:blue;cursor:pointer;}
@@ -24,16 +24,16 @@ td {border-color:#c0c0c0;} /*FF,Opera‚ÌŒrü‘Î‰*/
 #data {height:99%;width:79%;overflow: scroll;}
 
 input {font-size:60%;padding-right:2px;padding-left:2px;}
-.k {color:red;} /*ƒL[‘fŞ*/
-#data p {font-size:80%;color:red;margin-bottom:0;} /*„í•Ší*/
-#data td div {font-size:60%;margin-left:0.5em;} /*‹­‰»Œ³æ*/
+.k {color:red;} /*ã‚­ãƒ¼ç´ æ*/
+#data p {font-size:80%;color:red;margin-bottom:0;} /*å‰›ç¨®æ­¦å™¨*/
+#data td div {font-size:60%;margin-left:0.5em;} /*å¼·åŒ–å…ƒå…ˆ*/
 #data td div a {display:block;text-decoration: none;}
 #data td div a:link,#data td div A:visited {color:blue;}
 #data td div a:hover {color:red;}
 #data td div a:active {color:black;}
 b {font-size:80%;font-weight:normal;color:Navy;display:block;text-align:center;} /*GR*/
-s {color:red;text-decoration:none;} /*ƒ}ƒCƒiƒX‰ïS,à–¾—“*/
-#data q {color:red;font-size:73%;clear:left;display:block;quotes: "" ""} /*’HˆÙ*/
+s {color:red;text-decoration:none;} /*ãƒã‚¤ãƒŠã‚¹ä¼šå¿ƒ,èª¬æ˜æ¬„*/
+#data q {color:red;font-size:73%;clear:left;display:block;quotes: "" ""} /*è¾¿ç•°*/
 #ken {width:64.0em;}
 #yumi {width:65.5em;}
 #gun {width:77.0em;}
@@ -57,29 +57,29 @@ s {color:red;text-decoration:none;} /*ƒ}ƒCƒiƒX‰ïS,à–¾—“*/
 #cSz {width:9.3em}
 #cDc {width:13.5em;}
 
-#ken td:first-child+td+td+td+td,	/*Œ•m‚Ì5—ñ–ÚƒXƒƒbƒg*/
-#yumi td:first-child+td+td+td+td+td,/*‹|‚Ì6—ñ–ÚƒXƒƒbƒg*/
-#gun td:first-child+td+td+td,		/*ƒKƒ“‚Ì4—ñ–Ú”½“®*/
-#gun td:first-child+td+td+td+td+td	/*ƒKƒ“‚Ì6—ñ–ÚƒXƒƒbƒg*/
+#ken td:first-child+td+td+td+td,	/*å‰£å£«ã®5åˆ—ç›®ã‚¹ãƒ­ãƒƒãƒˆ*/
+#yumi td:first-child+td+td+td+td+td,/*å¼“ã®6åˆ—ç›®ã‚¹ãƒ­ãƒƒãƒˆ*/
+#gun td:first-child+td+td+td,		/*ã‚¬ãƒ³ã®4åˆ—ç›®åå‹•*/
+#gun td:first-child+td+td+td+td+td	/*ã‚¬ãƒ³ã®6åˆ—ç›®ã‚¹ãƒ­ãƒƒãƒˆ*/
 										{text-align:center;}
 
-#ken td:first-child+td+td+td+td+td,	/*Œ•m‚Ì6—ñ–ÚHR*/
-#ken td:first-child+td+td+td+td+td+td,	/*Œ•m‚Ì7—ñ–Úƒ[ƒj[*/
-#yumi td:first-child+td+td+td+td+td+td,	/*‹|‚Ì7—ñ–ÚHR*/
-#yumi td:first-child+td+td+td+td+td+td+td,	/*‹|‚Ì8—ñ–Úƒ[ƒj[*/
-#gun td:first-child+td+td+td+td+td+td,	/*ƒKƒ“‚Ì7—ñ–ÚHR*/
-#gun td:first-child+td+td+td+td+td+td+td	/*ƒKƒ“‚Ì8—ñ–Úƒ[ƒj[*/
+#ken td:first-child+td+td+td+td+td,	/*å‰£å£«ã®6åˆ—ç›®HR*/
+#ken td:first-child+td+td+td+td+td+td,	/*å‰£å£«ã®7åˆ—ç›®ã‚¼ãƒ‹ãƒ¼*/
+#yumi td:first-child+td+td+td+td+td+td,	/*å¼“ã®7åˆ—ç›®HR*/
+#yumi td:first-child+td+td+td+td+td+td+td,	/*å¼“ã®8åˆ—ç›®ã‚¼ãƒ‹ãƒ¼*/
+#gun td:first-child+td+td+td+td+td+td,	/*ã‚¬ãƒ³ã®7åˆ—ç›®HR*/
+#gun td:first-child+td+td+td+td+td+td+td	/*ã‚¬ãƒ³ã®8åˆ—ç›®ã‚¼ãƒ‹ãƒ¼*/
 										{text-align:right;}
-#ken td:first-child+td+td+td+td+td:first-line,	/*Œ•m‚Ì6—ñ–ÚHR*/
-#yumi td:first-child+td+td+td+td+td+td:first-line,	/*‹|‚Ì7—ñ–ÚHR*/
-#gun td:first-child+td+td+td+td+td+td:first-line	/*ƒKƒ“‚Ì7—ñ–ÚHR*/
+#ken td:first-child+td+td+td+td+td:first-line,	/*å‰£å£«ã®6åˆ—ç›®HR*/
+#yumi td:first-child+td+td+td+td+td+td:first-line,	/*å¼“ã®7åˆ—ç›®HR*/
+#gun td:first-child+td+td+td+td+td+td:first-line	/*ã‚¬ãƒ³ã®7åˆ—ç›®HR*/
 										 {font-size:80%;} 
-/*“V˜L*/
+/*å¤©å»Š*/
 #tenrou p {margin:0;padding:0px;border-bottom:thin solid black;}
 #tenrou b {display:inline;}
 #tenrou .l {border-left:thin none black}
 
-/*ƒQ[ƒW—p*/
+/*ã‚²ãƒ¼ã‚¸ç”¨*/
 #ken ul {margin:0;padding:1px 0;height:10px;font-size:1px;width:101px;list-style-type:none;background-color:slategray;}
 #ken li {float:left;height:10px;}
 #ken .r {background-color:red;}
@@ -161,12 +161,12 @@ s {color:red;text-decoration:none;} /*ƒ}ƒCƒiƒX‰ïS,à–¾—“*/
 #ken .s87 {width:87px}
 #ken .s90 {width:90px}
 #ken .s100 {width:100px}
-/*ƒKƒ“*/
+/*ã‚¬ãƒ³*/
 #gun ul {margin:0;padding:0;list-style-type:none;width:17.5em}
 #gun li {float:left;margin-right:0.2em;}
-u {color:red;text-decoration:none;} /*ƒ}ƒCƒiƒX’e*/
-i {font-style:normal;color:blue;clear:left;display:block;} /*ƒrƒ“‘¬Ë*/
-/*“J*/
+u {color:red;text-decoration:none;} /*ãƒã‚¤ãƒŠã‚¹å¼¾*/
+i {font-style:normal;color:blue;clear:left;display:block;} /*ãƒ“ãƒ³é€Ÿå°„*/
+/*ç¬›*/
 #ken .f {background-color:silver;}
 #ken .fr {color:red;}
 #ken .fb {color:blue;}

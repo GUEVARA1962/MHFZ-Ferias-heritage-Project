@@ -1,34 +1,34 @@
 /*@cc_on if (@_jscript_version < 9) {_d=document;eval('var document=_d');}@*/
 (function (document){
-//ŒÅ’è
+//å›ºå®š
 var item_id = location.search.substring(1,5).toUpperCase(),
 	MST_Item = setItem(),
 	MST_Quest = setQuest(),
 	MST_Saisyu = setSaisyu(),
 	MST_Mos = setMonster(),
 	MST_Other = setOther(),
-	Quest_Season = ["","F‰·’gŠú","F”ÉBŠú","FŠ¦—âŠú"],
-	Quest_Time = ["","/’‹","/–é"],
-	Saisyu_Name = ["”Ä—p","–§—Ñ","»”™","À’n","áR","‰ÎR","X‹u","“ƒ", "÷ŠC","Œ}Œ‚‹’“_","Ô","é","Œˆíê","“¬‹Z‰‰K","‹¬’J","â“‡","‚’n","’ª“‡","‹ÉŠC","‰Ô”¨","”’ŒÎ","Ê‚Ì‘ê"],
+	Quest_Season = ["","ï¼šæ¸©æš–æœŸ","ï¼šç¹æ®–æœŸ","ï¼šå¯’å†·æœŸ"],
+	Quest_Time = ["","/æ˜¼","/å¤œ"],
+	Saisyu_Name = ["æ±ç”¨","å¯†æ—","ç ‚æ¼ ","æ²¼åœ°","é›ªå±±","ç«å±±","æ£®ä¸˜","å¡”", "æ¨¹æµ·","è¿æ’ƒæ‹ ç‚¹","ç ¦","åŸ","æ±ºæˆ¦å ´","é—˜æŠ€æ¼”ç¿’","å³¡è°·","çµ¶å³¶","é«˜åœ°","æ½®å³¶","æ¥µæµ·","èŠ±ç•‘","ç™½æ¹–","å½©ã®æ»"],
 	Saisyu_Id	= ["",	"mitu","saba","numa","yuki","kaza","mori","tou","zyu", "def",		"toride","siro","kessen","tougi",	"kyou","sima","kou", "shio","kyoku","hana","bya","sai"];
 setItem = setQuest = setSaisyu = setMonster = setOther = null;
 var addEvent = function (elm, type, func) {
-	//’Ç‰Á
+	//è¿½åŠ 
 	elm./*@if (@_jscript_version < 9) attachEvent ('on' + @else@*/ addEventListener (/*@end@*/ type,func,false);
-	//ƒAƒ“ƒ[ƒh‚Åíœ
+	//ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰ã§å‰Šé™¤
 	window./*@if (@_jscript_version < 9) attachEvent ('on' + @else@*/ addEventListener (/*@end@*/ "unload",
 		function(){
 			elm./*@if (@_jscript_version < 9) detachEvent ('on' + @else@*/ removeEventListener (/*@end@*/ type,func,false);
 		}
 		,false);
 };
-//------------------------------------à–¾----------
+//------------------------------------èª¬æ˜----------
 var item = MST_Item[item_id];
 if (typeof item === 'undefined') {
 	document.getElementById("loading").style.display="none";
-	//ƒ{ƒ^ƒ“
+	//ãƒœã‚¿ãƒ³
 	if (location.search.charAt(5) === "W") {
-		document.getElementById("b_back").value = "•Â‚¶‚é";
+		document.getElementById("b_back").value = "é–‰ã˜ã‚‹";
 		addEvent(document.getElementById("b_back"),"click",function () {window.close();});
 	} else {
 		addEvent(document.getElementById("b_back"),"click",function () {history.back();});
@@ -36,7 +36,7 @@ if (typeof item === 'undefined') {
 	return;
 }
 document.getElementById("d_mei").firstChild.nodeValue = item[0];
-document.getElementById("d_rea").firstChild.nodeValue = isNaN(item[1]) ? item[1].replace("X","[‘î”zX]") : item[1];
+document.getElementById("d_rea").firstChild.nodeValue = isNaN(item[1]) ? item[1].replace("X","[å®…é…X]") : item[1];
 document.getElementById("d_buy").firstChild.nodeValue = item[2] + "z";
 document.getElementById("d_stock").firstChild.nodeValue = item[3];
 if (+item[4] >= 5000) {
@@ -56,54 +56,54 @@ if (+item[4] >= 5000) {
 }
 document.getElementById("d_setu").firstChild.nodeValue = item[6];
 
-//------------------------------------Ìæ----------
+//------------------------------------æ¡å–----------
 var creSaiLink = function (data,obj,rank,season) {
 	if (!data) return;
 	for (var i = 0,list = data.split(","),m = list.length,txt = ""; i < m; i++) {
 		var w = list[i].split("|"),
 			map_id = Saisyu_Id[w[0]] + "-";
-		txt += Saisyu_Name[w[0]] + " ƒGƒŠƒAF" +
-				(w[3].indexOf("h") !== -1	? w[3].replace("h"," <span id=\"" + map_id + w[1] + "." + map_id + rank + "." + w[2] + "." + season + i + "\"><span class=h>’‹</span> ")
-											: w[3].replace("y"," <span id=\"" + map_id + w[1] + "." + map_id + rank + "." + w[2] + "." + season + i + "\"><span class=y>–é</span> ")
+		txt += Saisyu_Name[w[0]] + " ã‚¨ãƒªã‚¢ï¼š" +
+				(w[3].indexOf("h") !== -1	? w[3].replace("h"," <span id=\"" + map_id + w[1] + "." + map_id + rank + "." + w[2] + "." + season + i + "\"><span class=h>æ˜¼</span> ")
+											: w[3].replace("y"," <span id=\"" + map_id + w[1] + "." + map_id + rank + "." + w[2] + "." + season + i + "\"><span class=y>å¤œ</span> ")
 				) + "%</span>" +
-				(w.length > 4	? " <span id=\"" + map_id + w[4] + "." + map_id + rank + "." + w[5] + "." + season + i + "\"><span class=y>–é</span> " + w[6] + "%</span><br>"
+				(w.length > 4	? " <span id=\"" + map_id + w[4] + "." + map_id + rank + "." + w[5] + "." + season + i + "\"><span class=y>å¤œ</span> " + w[6] + "%</span><br>"
 								: "<br>");
 	}
-	obj.innerHTML = txt.replace(/s /g,"ÌŒ@ ").replace(/m /g,"’–Ô ").replace(/t /g,"’Ş‚è ");
+	obj.innerHTML = txt.replace(/s /g,"æ¡æ˜ ").replace(/m /g,"è™«ç¶² ").replace(/t /g,"é‡£ã‚Š ");
 	if (m > 4) {
 		obj.style.height = "5em";
 		obj.style.overflow = "auto";
 	}
 }
-//‰ºˆÊ
+//ä¸‹ä½
 if (MST_Saisyu.Kai[item_id]) {
 	var sai = MST_Saisyu.Kai[item_id].split("^");
 	creSaiLink(sai[0],document.getElementById("sai_kaion"),"kai","on");
 	creSaiLink(sai[1],document.getElementById("sai_kaikan"),"kai","kan");
 	creSaiLink(sai[2],document.getElementById("sai_kaihan"),"kai","han");
 }
-//ãˆÊ
+//ä¸Šä½
 if (MST_Saisyu.Zyoui[item_id]) {
 	var sai = MST_Saisyu.Zyoui[item_id].split("^");
 	creSaiLink(sai[0],document.getElementById("sai_zyouion"),"zyoui","on");
 	creSaiLink(sai[1],document.getElementById("sai_zyouikan"),"zyoui","kan");
 	creSaiLink(sai[2],document.getElementById("sai_zyouihan"),"zyoui","han");
 }
-//¦˜r
+//å‡„è…•
 if (MST_Saisyu.Sugo[item_id]) {
 	var sai = MST_Saisyu.Sugo[item_id].split("^");
 	creSaiLink(sai[0],document.getElementById("sai_sugoon"),"sugo","on");
 	creSaiLink(sai[1],document.getElementById("sai_sugokan"),"sugo","kan");
 	creSaiLink(sai[2],document.getElementById("sai_sugohan"),"sugo","han");
 }
-//G‹‰
+//Gç´š
 if (MST_Saisyu.G[item_id]) {
 	var sai = MST_Saisyu.G[item_id].split("^");
 	creSaiLink(sai[0],document.getElementById("sai_gon"),"g","on");
 	creSaiLink(sai[1],document.getElementById("sai_gkan"),"g","kan");
 	creSaiLink(sai[2],document.getElementById("sai_ghan"),"g","han");
 }
-//------------------------------------ƒ‚ƒ“ƒXƒ^[----------
+//------------------------------------ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼----------
 var creMosLink = function (data,obj) {
 	if (!data) return;
 	for (var i = 0,list = data.split(","),m = list.length,txt = ""; i < m; i++) {
@@ -116,12 +116,12 @@ creMosLink(MST_Mos.Kai[item_id],document.getElementById("mos_kai"));
 creMosLink(MST_Mos.Zyoui[item_id],document.getElementById("mos_zyoui"));
 creMosLink(MST_Mos.Sugo[item_id],document.getElementById("mos_sugo"));
 creMosLink(MST_Mos.G[item_id],document.getElementById("mos_g"));
-//------------------------------------ƒNƒGƒXƒg----------
+//------------------------------------ã‚¯ã‚¨ã‚¹ãƒˆ----------
 var creQueLink = function (data,obj) {
 	if (!data) return;
 	for (var i = 0,list = data.split(","),m = list.length,txt = ""; i < m; i++) {
 		var w = MST_Quest.Name[list[i].substring(0,4)].split(","),hosyu = list[i].substring(6).split("%");
-		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "F" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> " + MST_Quest.Htype[parseInt(list[i].substring(4,6),16)] + " ‚Å " + (hosyu.length === 1 ? hosyu[0] + "ŒÂ" : hosyu[0] + "ŒÂ (" + hosyu[1] + "%)") + "<br>";
+		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "ï¼š" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> " + MST_Quest.Htype[parseInt(list[i].substring(4,6),16)] + " ã§ " + (hosyu.length === 1 ? hosyu[0] + "å€‹" : hosyu[0] + "å€‹ (" + hosyu[1] + "%)") + "<br>";
 	}
 	obj.innerHTML = txt;
 }
@@ -129,48 +129,48 @@ creQueLink(MST_Quest.Kai[item_id],document.getElementById("que_kai"));
 creQueLink(MST_Quest.Zyoui[item_id],document.getElementById("que_zyoui"));
 creQueLink(MST_Quest.Sugo[item_id],document.getElementById("que_sugo"));
 creQueLink(MST_Quest.G[item_id],document.getElementById("que_g"));
-//------------------------------------“X”„‚è----------
+//------------------------------------åº—å£²ã‚Š----------
 if (MST_Other.Shop[item_id]) {
-	var ShopName = ["‘‡iŠî–{j","‘‡i‘Ğj","‘‡i’eƒrƒ“j","‘‡i“¹‹ïj","‘‡i‘å“¬‹Z‰ïj","‘‡iG‰İj","‘‡iƒMƒ‹ƒhvŒ£PŒğŠ·j","HŞ‰®","’²‡‰®","Ë“I","—Â’cƒVƒ‡ƒbƒv","ƒ}ƒCƒgƒŒG‰İ‰®","ƒlƒbƒgƒJƒtƒFƒVƒ‡ƒbƒv","ëlÕ","‹C‹…“à","“ÁêƒAƒCƒeƒ€‰®","—Â’có•t","‘å“¢”°‹C‹…“à","“V˜L“à","‰Ì•P(ŒğŠ·j","‰Ì•P(ŒÀ’èŒğŠ·j","‘‡(‚«‚ñ‚Ò‚©)","ë—ù“¹“à","ë—ù“¹(ŒğŠ·)","ƒnƒŠƒZƒ“ƒlƒR","—Â’cŒ}Œ‚í","ƒƒ[ƒtƒFƒX"];
-	for (var i = 0,list = MST_Other.Shop[item_id].split(","),m = list.length,txt = ""; i < m; txt += ShopName[+list[i].substring(0,2)] + list[i++].substring(2) + "‚Å”Ì”„<br>");
+	var ShopName = ["ç·åˆï¼ˆåŸºæœ¬ï¼‰","ç·åˆï¼ˆæ›¸ç±ï¼‰","ç·åˆï¼ˆå¼¾ãƒ“ãƒ³ï¼‰","ç·åˆï¼ˆé“å…·ï¼‰","ç·åˆï¼ˆå¤§é—˜æŠ€ä¼šï¼‰","ç·åˆï¼ˆé›‘è²¨ï¼‰","ç·åˆï¼ˆã‚®ãƒ«ãƒ‰è²¢çŒ®Päº¤æ›ï¼‰","é£Ÿæå±‹","èª¿åˆå±‹","å°„çš„","çŒŸå›£ã‚·ãƒ§ãƒƒãƒ—","ãƒã‚¤ãƒˆãƒ¬é›‘è²¨å±‹","ãƒãƒƒãƒˆã‚«ãƒ•ã‚§ã‚·ãƒ§ãƒƒãƒ—","ç‹©äººç¥­","æ°—çƒå†…","ç‰¹æ®Šã‚¢ã‚¤ãƒ†ãƒ å±‹","çŒŸå›£å—ä»˜","å¤§è¨ä¼æ°—çƒå†…","å¤©å»Šå†…","æ­Œå§«(äº¤æ›ï¼‰","æ­Œå§«(é™å®šäº¤æ›ï¼‰","ç·åˆ(ãã‚“ã´ã‹)","ç‹©ç…‰é“å†…","ç‹©ç…‰é“(äº¤æ›)","ãƒãƒªã‚»ãƒ³ãƒã‚³","çŒŸå›£è¿æ’ƒæˆ¦","ãƒ¡ã‚¼ãƒ•ã‚§ã‚¹"];
+	for (var i = 0,list = MST_Other.Shop[item_id].split(","),m = list.length,txt = ""; i < m; txt += ShopName[+list[i].substring(0,2)] + list[i++].substring(2) + "ã§è²©å£²<br>");
 	document.getElementById("shop").innerHTML = txt;
 }
-//------------------------------------’²‡----------
-var CyougoType = ["","","ƒ}ƒJ’Ğ‚¯‚Ì’ÙE","ƒjƒƒƒJ’Ğ‚¯‚Ì’ÙF","ƒ}ƒCƒK[ƒfƒ“F","","ƒ}ƒCƒgƒŒ–`Œ¯‰®F",""],
-	CyougoName = ["’²‡F","ƒ}ƒCƒgƒŒ’²‡FLV","CP’²‡F","vŒ£P’²‡F","“Á•Ê’²‡F","”é“`ìŒğŠ·F","°øŒMŒğŠ·F","”é“`ƒJƒt‘fŞŒğŠ·F"],
-	JijiMei = ["–§—Ñ/÷ŠC–êF","X‹u–êF","À’n–êF","»”™–êF","áR–êF","‹¬’J–êF","‚’n–êF","’ª“‡–êF","‹ÉŠC–êF","’|—Ñ‰œ•”–êF","–êF"];
+//------------------------------------èª¿åˆ----------
+var CyougoType = ["","","ãƒã‚«æ¼¬ã‘ã®å£·ãƒ»","ãƒ‹ãƒ£ã‚«æ¼¬ã‘ã®å£·ï¼š","ãƒã‚¤ã‚¬ãƒ¼ãƒ‡ãƒ³ï¼š","","ãƒã‚¤ãƒˆãƒ¬å†’é™ºå±‹ï¼š",""],
+	CyougoName = ["èª¿åˆï¼š","ãƒã‚¤ãƒˆãƒ¬èª¿åˆï¼šLV","CPèª¿åˆï¼š","è²¢çŒ®Pèª¿åˆï¼š","ç‰¹åˆ¥èª¿åˆï¼š","ç§˜ä¼ç äº¤æ›ï¼š","é­‚ç¶¬å‹²äº¤æ›ï¼š","ç§˜ä¼ã‚«ãƒ•ç´ æäº¤æ›ï¼š"],
+	JijiMei = ["å¯†æ—/æ¨¹æµ·çˆºï¼š","æ£®ä¸˜çˆºï¼š","æ²¼åœ°çˆºï¼š","ç ‚æ¼ çˆºï¼š","é›ªå±±çˆºï¼š","å³¡è°·çˆºï¼š","é«˜åœ°çˆºï¼š","æ½®å³¶çˆºï¼š","æ¥µæµ·çˆºï¼š","ç«¹æ—å¥¥éƒ¨çˆºï¼š","çˆºï¼š"];
 if (MST_Other.Cyougo[item_id]) {
-	var JijiMeiKoukan = [" ‚ÆŒğŠ·uƒgƒbƒeƒIƒLv‚Å‚Šm—¦"," ‚ÆŒğŠ·uƒIƒ^ƒJƒ‰v‚Å‚Šm—¦"," ‚ÆŒğŠ· ‚Ç‚¿‚ç‚Å‚à‚Šm—¦"," ‚ÆŒğŠ· ‚Ç‚¿‚ç‚Å‚à’áŠm—¦"," ‚ÆŒğŠ·"],
-		GalleryName = ["ƒMƒƒƒ‰ƒŠ[‘å‰ïF","ƒMƒƒƒ‰ƒŠ[‘å‰ï‚fF"],
-		GalleryPont =["1999ƒ|ƒCƒ“ƒgˆÈ‰º‚ÌÜ•i ","2000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","10000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","20000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","40000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","60000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","60000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","80000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","90000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i ","100000ƒ|ƒCƒ“ƒgˆÈã‚ÌÜ•i "],
-		GardenName = ["…T‚«","‘|œ","“÷Ä‚«","ÌŒ@","’‚Ì¢˜b","Œ@‚èo‚µ•¨","—‚µ•¨ƒlƒR"],
-		BoukenName = ["Lv1 Š¦‚¢ŒÎ”È","Lv1 ‘«‚Ì— ‚ª‹‚¢»”™‚Ì•½’n","Lv1 –¶‚ÌŠ|‚©‚Á‚½¼’n","Lv1 —Î‚ª¶‚¢–Î‚Á‚½•½’n","Lv2 ‚«‚ê‚¢‚ÈŒÎŠİ","Lv2 ˆâÕ‚ªŒ©‚¦‚éêŠ","Lv2 ŠëŒ¯‚È“Å‚ÌÀ’n","Lv2 ‹–Ø‚Ì‚ ‚é[—Î‚Ì•½’n","Lv2 —nŠâ—¬‚ê‚é“´ŒA","Lv3 ˆâÕ‚Æ‚È‚Á‚½êŠ","Lv3 PŒ‚‚³‚ê‚â‚·‚¢êŠ","Lv3 á‚¢‚½R’¸","Lv3 “`à‚ª¶‚Ü‚ê‚»‚¤‚ÈêŠ","Lv3 ”M‚·‚¬‚é‰ÎŒû•t‹ß","(‹H)ƒWƒ‚Á‚Æ‚µ‚Ä¶L‚¢êŠ","(‹H)ƒ‰ƒ“ƒSƒXƒ^‚Ì‘ƒ","(‹H)‰½‚©‚Ì‘ƒ","(‹H)‘å“¬‹Zê•t‹ß","(‹H)”é–§‚Ì”²‚¯ŒŠ","LV3 ——‹A—Î’ˆÓ‚Ì•½’n","Lv3 •—‚ª‹­‚¢Ô“y‚Ì’J","Lv3 ’ª‚Ì‚è‚ª‚·‚é…•Ó","(SR‹H) ’·‚­Œ¯‚µ‚¢“¹","GR g‚ğÅ‚ª‚·Ü’n","GR —Î–L‚©‚È…•Ó","GR ‹P‚­•Ç–Ê‚Ì“´ŒŠ","GR ’n–Ê‚ª“€‚éêŠ","GR(‹H) ŠÃ‚¢‚è‚Ì‚·‚é‘Œ´","GR600 ‰Ô•Ù‚ª•‘‚¢U‚é•½’n","GR600 é…‰J‚Ì~‚é‹u","GR600 •Xá‚«Šª‚­’¸","GR600 Œõ‚ªË‚·êŠ","GR600(‹H) ŠëŒ¯A•¨‚Ì“´ŒA","GR600(‹H) ‘–Ø‚Ì¶‚¦‚È‚¢r’n"],
-		BoukenRank = [" ‚ÅÅ‘å ","š1 ‚ÅÅ‘å ","š2 ‚ÅÅ‘å ","š3(HR31) ‚ÅÅ‘å ","HR1`10 ‚ÅÅ‘å ","HR11`20 ‚ÅÅ‘å ","HR21`30 ‚ÅÅ‘å ","HR31` ‚ÅÅ‘å ","HR100` ‚ÅÅ‘å ","HR1` ‚Å ","HR1`16 ‚Å ","HR1`30 ‚Å ","HR1`99 ‚Å ","HR17` ‚Å ","HR17`30 ‚Å ","HR17`99 ‚Å ","HR31` ‚Å ","HR31`99 ‚Å ","HR51` ‚Å ","HR100` ‚Å ","GR600` ‚Å "],
-		BoukenDan = ["(ã’i) ","(‰º’i) "],
-		MakaTubo = [" ‚ğ5•ª–¢–’Ğ‚¯‚é(”’F)"," ‚ğ5•ªˆÈã’Ğ‚¯‚é(‡F)"," ‚ğ10•ªˆÈã’Ğ‚¯‚é(ÂF)"," ‚ğ15•ªˆÈã’Ğ‚¯‚é(—ÎF)"," ‚ğ20•ªˆÈã’Ğ‚¯‚é(‰©F)"," ‚ğ30•ªˆÈã’Ğ‚¯‚é(ÔF)"],
-		NyakaTubo = ["‚ğ“ü‚ê‚Ä 0:”’ ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 1F‡ ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 2FÂ ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 3F—Î ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 4F‰© ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 5`FÔ ‚Ü‚Å’Ğ‚¯‚ê‚Î ","‚ğ“ü‚ê‚Ä 6`F“ø ‚Ü‚Å’Ğ‚¯‚ê‚Î "];
+	var JijiMeiKoukan = [" ã¨äº¤æ›ã€Œãƒˆãƒƒãƒ†ã‚ªã‚­ã€ã§é«˜ç¢ºç‡"," ã¨äº¤æ›ã€Œã‚ªã‚¿ã‚«ãƒ©ã€ã§é«˜ç¢ºç‡"," ã¨äº¤æ› ã©ã¡ã‚‰ã§ã‚‚é«˜ç¢ºç‡"," ã¨äº¤æ› ã©ã¡ã‚‰ã§ã‚‚ä½ç¢ºç‡"," ã¨äº¤æ›"],
+		GalleryName = ["ã‚®ãƒ£ãƒ©ãƒªãƒ¼å¤§ä¼šï¼š","ã‚®ãƒ£ãƒ©ãƒªãƒ¼å¤§ä¼šï¼§ï¼š"],
+		GalleryPont =["1999ãƒã‚¤ãƒ³ãƒˆä»¥ä¸‹ã®è³å“ ","2000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","10000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","20000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","40000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","60000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","60000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","80000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","90000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ ","100000ãƒã‚¤ãƒ³ãƒˆä»¥ä¸Šã®è³å“ "],
+		GardenName = ["æ°´æ’’ã","æƒé™¤","è‚‰ç„¼ã","æ¡æ˜","è™«ã®ä¸–è©±","æ˜ã‚Šå‡ºã—ç‰©","è½ã—ç‰©ãƒã‚³"],
+		BoukenName = ["Lv1 å¯’ã„æ¹–ç•”","Lv1 è¶³ã®è£ãŒæš‘ã„ç ‚æ¼ ã®å¹³åœ°","Lv1 éœ§ã®æ›ã‹ã£ãŸæ¹¿åœ°","Lv1 ç·‘ãŒç”Ÿã„èŒ‚ã£ãŸå¹³åœ°","Lv2 ãã‚Œã„ãªæ¹–å²¸","Lv2 éºè·¡ãŒè¦‹ãˆã‚‹å ´æ‰€","Lv2 å±é™ºãªæ¯’ã®æ²¼åœ°","Lv2 å·¨æœ¨ã®ã‚ã‚‹æ·±ç·‘ã®å¹³åœ°","Lv2 æº¶å²©æµã‚Œã‚‹æ´çªŸ","Lv3 éºè·¡ã¨ãªã£ãŸå ´æ‰€","Lv3 è¥²æ’ƒã•ã‚Œã‚„ã™ã„å ´æ‰€","Lv3 å¹é›ªã„ãŸå±±é ‚","Lv3 ä¼èª¬ãŒç”Ÿã¾ã‚Œãã†ãªå ´æ‰€","Lv3 ç†±ã™ãã‚‹ç«å£ä»˜è¿‘","(ç¨€)ã‚¸ãƒ¡ã£ã¨ã—ã¦ç”Ÿè‡­ã„å ´æ‰€","(ç¨€)ãƒ©ãƒ³ã‚´ã‚¹ã‚¿ã®å·£","(ç¨€)ä½•ã‹ã®å·£","(ç¨€)å¤§é—˜æŠ€å ´ä»˜è¿‘","(ç¨€)ç§˜å¯†ã®æŠœã‘ç©´","LV3 è½é›·ã€è½çŸ³æ³¨æ„ã®å¹³åœ°","Lv3 é¢¨ãŒå¼·ã„èµ¤åœŸã®è°·","Lv3 æ½®ã®é¦™ã‚ŠãŒã™ã‚‹æ°´è¾º","(SRç¨€) é•·ãé™ºã—ã„é“","GR èº«ã‚’ç„¦ãŒã™ç¼åœ°","GR ç·‘è±Šã‹ãªæ°´è¾º","GR è¼ãå£é¢ã®æ´ç©´","GR åœ°é¢ãŒå‡ã‚‹å ´æ‰€","GR(ç¨€) ç”˜ã„é¦™ã‚Šã®ã™ã‚‹è‰åŸ","GR600 èŠ±å¼ãŒèˆã„æ•£ã‚‹å¹³åœ°","GR600 é©Ÿé›¨ã®é™ã‚‹ä¸˜","GR600 æ°·é›ªå¹ãå·»ãé ‚","GR600 å…‰ãŒå°„ã™å ´æ‰€","GR600(ç¨€) å±é™ºæ¤ç‰©ã®æ´çªŸ","GR600(ç¨€) è‰æœ¨ã®ç”Ÿãˆãªã„è’åœ°"],
+		BoukenRank = [" ã§æœ€å¤§ ","â˜…1 ã§æœ€å¤§ ","â˜…2 ã§æœ€å¤§ ","â˜…3(HR31) ã§æœ€å¤§ ","HR1ï½10 ã§æœ€å¤§ ","HR11ï½20 ã§æœ€å¤§ ","HR21ï½30 ã§æœ€å¤§ ","HR31ï½ ã§æœ€å¤§ ","HR100ï½ ã§æœ€å¤§ ","HR1ï½ ã§ ","HR1ï½16 ã§ ","HR1ï½30 ã§ ","HR1ï½99 ã§ ","HR17ï½ ã§ ","HR17ï½30 ã§ ","HR17ï½99 ã§ ","HR31ï½ ã§ ","HR31ï½99 ã§ ","HR51ï½ ã§ ","HR100ï½ ã§ ","GR600ï½ ã§ "],
+		BoukenDan = ["(ä¸Šæ®µ) ","(ä¸‹æ®µ) "],
+		MakaTubo = [" ã‚’5åˆ†æœªæº€æ¼¬ã‘ã‚‹(ç™½è‰²)"," ã‚’5åˆ†ä»¥ä¸Šæ¼¬ã‘ã‚‹(ç´«è‰²)"," ã‚’10åˆ†ä»¥ä¸Šæ¼¬ã‘ã‚‹(é’è‰²)"," ã‚’15åˆ†ä»¥ä¸Šæ¼¬ã‘ã‚‹(ç·‘è‰²)"," ã‚’20åˆ†ä»¥ä¸Šæ¼¬ã‘ã‚‹(é»„è‰²)"," ã‚’30åˆ†ä»¥ä¸Šæ¼¬ã‘ã‚‹(èµ¤è‰²)"],
+		NyakaTubo = ["ã‚’å…¥ã‚Œã¦ 0:ç™½ ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 1ï¼šç´« ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 2ï¼šé’ ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 3ï¼šç·‘ ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 4ï¼šé»„ ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 5ï½ï¼šèµ¤ ã¾ã§æ¼¬ã‘ã‚Œã° ","ã‚’å…¥ã‚Œã¦ 6ï½ï¼šè™¹ ã¾ã§æ¼¬ã‘ã‚Œã° "];
 	for (var i = 0,list = MST_Other.Cyougo[item_id].split(","),m = list.length,txt = ""; i < m; i++) {
 		txt += CyougoType[list[i].charAt(0)];
 		switch (list[i].charAt(0)) {
-		case "0": //’²‡
+		case "0": //èª¿åˆ
 			txt += CyougoName[list[i].charAt(1)] + list[i].substring(2) + "<br>";
 			break;
-		case "1": //ŒğŠ·
+		case "1": //äº¤æ›
 			txt += JijiMei[list[i].charAt(1)] + list[i].substring(2,list[i].length-1) + JijiMeiKoukan[list[i].charAt(list[i].length-1)] + "<br>";
 			break;
-		case "2": //’Ù
+		case "2": //å£·
 			txt += list[i].substring(1,9) + MakaTubo[list[i].charAt(9)] + "<br>";
 			break;
-		case "3": //ƒjƒƒƒJ
+		case "3": //ãƒ‹ãƒ£ã‚«
 			txt += list[i].substring(1,6) + NyakaTubo[list[i].charAt(6)] + list[i].substring(7) + "<br>";
 			break;
-		case "4": //ƒ}ƒCƒK[ƒfƒ“
+		case "4": //ãƒã‚¤ã‚¬ãƒ¼ãƒ‡ãƒ³
 			txt += GardenName[list[i].charAt(1)] + BoukenRank[list[i].substring(2,4)-0] + list[i].substring(4) + "<br>";
 			break;
-		case "5": //ƒMƒƒƒ‰ƒŠ[
+		case "5": //ã‚®ãƒ£ãƒ©ãƒªãƒ¼
 			txt += GalleryName[list[i].charAt(1)] + GalleryPont[list[i].charAt(2)] + list[i].substring(3) + "<br>";
 			break;
-		case "6": //–`Œ¯
+		case "6": //å†’é™º
 			txt += BoukenName[list[i].substring(1,3)-0] + BoukenDan[list[i].charAt(3)] + list[i].substring(4) + "<br>";
 			break;
 		default:
@@ -178,45 +178,45 @@ if (MST_Other.Cyougo[item_id]) {
 			break;
 		}
 	}
-	document.getElementById("cyougou").innerHTML = txt.replace(/\|[0-9A-F]{4}/g, function(s1){return " <a href=\"../sozai/sozai.htm?" + s1.substring(1) + "\">" + MST_Item[s1.substring(1)][0] + "</a> "}).replace(/K\d+\%/g, function(s1){return "ŒÂ (" + s1.substring(1) + ")"}).replace(/K/g,"ŒÂ ");
+	document.getElementById("cyougou").innerHTML = txt.replace(/\|[0-9A-F]{4}/g, function(s1){return " <a href=\"../sozai/sozai.htm?" + s1.substring(1) + "\">" + MST_Item[s1.substring(1)][0] + "</a> "}).replace(/K\d+\%/g, function(s1){return "å€‹ (" + s1.substring(1) + ")"}).replace(/K/g,"å€‹ ");
 }
-if (MST_Quest.Lot[item_id]) { //‚­‚¶
+if (MST_Quest.Lot[item_id]) { //ãã˜
 	for (var i = 0,list = MST_Quest.Lot[item_id].split(","),m = list.length,txt = ""; i < m; i++) {
 		var w = MST_Quest.Name[list[i].substring(0,4)].split(","),hosyu = list[i].substring(6).split("%");
-		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "F" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> " + MST_Quest.Htype[parseInt(list[i].substring(4,6),16)] + " ‚Å " + (hosyu.length === 1 ? hosyu[0] + "ŒÂ" : hosyu[0] + "ŒÂ (" + hosyu[1] + "%)") + "<br>";
+		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "ï¼š" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> " + MST_Quest.Htype[parseInt(list[i].substring(4,6),16)] + " ã§ " + (hosyu.length === 1 ? hosyu[0] + "å€‹" : hosyu[0] + "å€‹ (" + hosyu[1] + "%)") + "<br>";
 	}
 	document.getElementById("cyougou").innerHTML = (MST_Other.Cyougo[item_id] ? document.getElementById("cyougou").innerHTML : "") + txt.replace(/HR\D/g,"SR");
 }
-//------------------------------------‚»‚Ì‘¼‚Ì—˜—p----------
+//------------------------------------ãã®ä»–ã®åˆ©ç”¨----------
 if (MST_Other.Riyou[item_id]) {
 	for (var i = 0,list = MST_Other.Riyou[item_id].split(","),m = list.length,txt = ""; i < m; i++) {
-		txt += CyougoType[list[i].charAt(0)].replace("E","F");
+		txt += CyougoType[list[i].charAt(0)].replace("ãƒ»","ï¼š");
 		switch (list[i].charAt(0)) {
-		case "0": //’²‡
-			txt += CyougoName[list[i].charAt(1)] + list[i].substring(2) + "ì¬<br>";
+		case "0": //èª¿åˆ
+			txt += CyougoName[list[i].charAt(1)] + list[i].substring(2) + "ä½œæˆ<br>";
 			break;
-		case "1": //ŒğŠ·
-			txt += JijiMei[list[i].charAt(1)] + list[i].substring(2) + "‚ÆŒğŠ·‰Â”\<br>";
+		case "1": //äº¤æ›
+			txt += JijiMei[list[i].charAt(1)] + list[i].substring(2) + "ã¨äº¤æ›å¯èƒ½<br>";
 			break;
-		case "7": //‘¼
+		case "7": //ä»–
 			txt += list[i].substring(1) + "<br>";
 			break;
 		default:
-			txt += list[i].substring(1) + "‚ª“üè‰Â”\<br>";
+			txt += list[i].substring(1) + "ãŒå…¥æ‰‹å¯èƒ½<br>";
 			break;
 		}
 	}
-	document.getElementById("riyou").innerHTML = txt.replace(/\|[0-9A-F]{4}/g, function(s1){return " <a href=\"../sozai/sozai.htm?" + s1.substring(1) + "\">" + MST_Item[s1.substring(1)][0] + "</a> "}).replace(/K\d+\%/g, function(s1){return "ŒÂ (" + s1.substring(1) + ")"}).replace(/K/g,"ŒÂ ").replace(/M/g,"’²‡‚µ‚Ä ");
+	document.getElementById("riyou").innerHTML = txt.replace(/\|[0-9A-F]{4}/g, function(s1){return " <a href=\"../sozai/sozai.htm?" + s1.substring(1) + "\">" + MST_Item[s1.substring(1)][0] + "</a> "}).replace(/K\d+\%/g, function(s1){return "å€‹ (" + s1.substring(1) + ")"}).replace(/K/g,"å€‹ ").replace(/M/g,"èª¿åˆã—ã¦ ");
 }
-if (MST_Quest.Riyou[item_id]) { //ƒNƒGƒXƒg
+if (MST_Quest.Riyou[item_id]) { //ã‚¯ã‚¨ã‚¹ãƒˆ
 	for (var i = 0,list = MST_Quest.Riyou[item_id].split(","),m = list.length,txt = ""; i < m; i++) {
 		var w = MST_Quest.Name[list[i].substring(0,4)].split(",");
-		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "F" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> ‚Å" + list[i].substring(5) + "ŒÂ " +(list[i].charAt(4) === "N" ? "”[•i<br>" : "ó’‚ÅÁ”ï<br>");
+		txt += "<a href=\"../quest/" + w[0] + ".htm#l" + list[i].substring(0,4) + "\"" + (w[1].charAt(4) ? " class="+w[1].charAt(4) : "") + ">" + MST_Quest.Btype[parseInt(w[1].substring(0,2),16)] + Quest_Season[w[1].charAt(2)] + Quest_Time[w[1].charAt(3)] + "ï¼š" + w[3] + MST_Quest.Qtype[parseInt(w[2],16)] + w[4] + "</a> ã§" + list[i].substring(5) + "å€‹ " +(list[i].charAt(4) === "N" ? "ç´å“<br>" : "å—æ³¨ã§æ¶ˆè²»<br>");
 	}
 	document.getElementById("riyou").innerHTML = (MST_Other.Riyou[item_id] ? document.getElementById("riyou").innerHTML : "") + txt.replace(/HR\D/g,"SR");
 }
 
-//------------------------------------ÌæMAP•\¦----------
+//------------------------------------æ¡å–MAPè¡¨ç¤º----------
 var showMap = function (evt){
 	/*@if (@_jscript_version < 9)
 	var t = evt.srcElement;
@@ -230,7 +230,7 @@ var showMap = function (evt){
 		document.getElementById("sai_link").style.display = "";
 	}
 }
-//ƒCƒxƒ“ƒgƒZƒbƒg
+//ã‚¤ãƒ™ãƒ³ãƒˆã‚»ãƒƒãƒˆ
 addEvent(document.getElementById("sai_kaion"),"click",showMap);
 addEvent(document.getElementById("sai_kaikan"),"click",showMap);
 addEvent(document.getElementById("sai_kaihan"),"click",showMap);
@@ -244,25 +244,25 @@ addEvent(document.getElementById("sai_gon"),"click",showMap);
 addEvent(document.getElementById("sai_gkan"),"click",showMap);
 addEvent(document.getElementById("sai_ghan"),"click",showMap);
 
-//ƒ{ƒ^ƒ“
+//ãƒœã‚¿ãƒ³
 if (location.search.charAt(5) === "W") {
-	document.getElementById("b_back").value = "•Â‚¶‚é";
+	document.getElementById("b_back").value = "é–‰ã˜ã‚‹";
 	addEvent(document.getElementById("b_back"),"click",function () {window.close();});
 } else {
 	addEvent(document.getElementById("b_back"),"click",function () {history.back();});
 }
 MST_Item = MST_Quest = MST_Saisyu = MST_Mos = MST_Other =null;
 
-//•Ší–h‹ï
+//æ­¦å™¨é˜²å…·
 addEvent(document.getElementById("b_yt"),"click",function () {
-var BouguName = {"h":"“ª–h‹ï","b":"“·–h‹ï","a":"˜r–h‹ï","w":"˜–h‹ï","l":"‹r–h‹ï","d":"‘•ü•i","p":"‘•ü•i","c":"ƒJƒt","t":"“V˜LÎ","f":"“V••ˆó","k":"“Vˆó","z":"ƒJƒt‚y","s":"ƒVƒWƒ‹","n":"ƒlƒR","H":"‚o“ª","B":"‚o“·"},
+var BouguName = {"h":"é ­é˜²å…·","b":"èƒ´é˜²å…·","a":"è…•é˜²å…·","w":"è…°é˜²å…·","l":"è„šé˜²å…·","d":"è£…é£¾å“","p":"è£…é£¾å“","c":"ã‚«ãƒ•","t":"å¤©å»ŠçŸ³","f":"å¤©å°å°","k":"å¤©åˆ»å°","z":"ã‚«ãƒ•ï¼º","s":"ã‚·ã‚¸ãƒ«","n":"ãƒã‚³","H":"ï¼°é ­","B":"ï¼°èƒ´"},
 	BouguId = {"h":"head","b":"body","a":"arm","w":"wst","l":"leg","d":"deco","c":"decocf","p":"decosp","n":"deconk","t":"decotr","f":"decotf","k":"decotk","z":"decocz","s":"sigil","H":"head_pertnya","B":"body_pertnya"},
-	BukiName = {0:"‘åŒ•",1:"ƒwƒrƒBƒ{ƒEƒKƒ“",2:"ƒnƒ“ƒ}[",3:"ƒ‰ƒ“ƒX",4:"•ĞèŒ•",5:"ƒ‰ƒCƒgƒ{ƒEƒKƒ“",6:"‘oŒ•",7:"‘¾“",8:"ë—Â“J",9:"ƒKƒ“ƒ‰ƒ“ƒX","A":"‹|","B":"ú—´","C":"½×¯¼­±¯¸½","D":"Ï¸ŞÈ¯Ä½Êß²¸","a":"‚o‘åŒ•","c":"‚oƒnƒ“ƒ}["},
+	BukiName = {0:"å¤§å‰£",1:"ãƒ˜ãƒ“ã‚£ãƒœã‚¦ã‚¬ãƒ³",2:"ãƒãƒ³ãƒãƒ¼",3:"ãƒ©ãƒ³ã‚¹",4:"ç‰‡æ‰‹å‰£",5:"ãƒ©ã‚¤ãƒˆãƒœã‚¦ã‚¬ãƒ³",6:"åŒå‰£",7:"å¤ªåˆ€",8:"ç‹©çŒŸç¬›",9:"ã‚¬ãƒ³ãƒ©ãƒ³ã‚¹","A":"å¼“","B":"ç©¿é¾æ£","C":"ï½½ï¾—ï½¯ï½¼ï½­ï½±ï½¯ï½¸ï½½","D":"ï¾ï½¸ï¾ï¾ˆï½¯ï¾„ï½½ï¾Šï¾Ÿï½²ï½¸","a":"ï¼°å¤§å‰£","c":"ï¼°ãƒãƒ³ãƒãƒ¼"},
 	BukiId = {0:"taiken",1:"heavy",2:"hammer",3:"lance",4:"katate",5:"right",6:"souken",7:"tachi",8:"horn",9:"gunlance","A":"yumi","B":"tonfa","C":"slaxe","D":"magspike","a":"taiken_partnya","c":"hammer_partnya"},
-	Craft = {0:"¶Y",1:"‹­‰»",2:"G¶Y",3:"G‹­‰»",4:"GŠm’è"},
+	Craft = {0:"ç”Ÿç”£",1:"å¼·åŒ–",2:"Gç”Ÿç”£",3:"Gå¼·åŒ–",4:"Gç¢ºå®š"},
 	MST_Equip = setBuki();
 if (MST_Equip.Sozai[item_id]) {
-	var txt = "<table><tr><th style=\"width:7em;\">•Šíí—Ş</th><th style=\"width:10em;\">•Ší–¼</th><th style=\"width:2.5em;\">»ì</th><th style=\"width:2em;\">”</th></tr>";
+	var txt = "<table><tr><th style=\"width:7em;\">æ­¦å™¨ç¨®é¡</th><th style=\"width:10em;\">æ­¦å™¨å</th><th style=\"width:2.5em;\">è£½ä½œ</th><th style=\"width:2em;\">æ•°</th></tr>";
 	for (var i = 0,su_sum = 0,list = MST_Equip.Sozai[item_id].split(","),m = list.length; i < m; i++) {
 		var eq_rui = list[i].charAt(0),
 			eq_id = list[i].substring(1,5),
@@ -271,17 +271,17 @@ if (MST_Equip.Sozai[item_id]) {
 			eq_name = MST_Equip.Name[eq_rui+eq_id],
 			sp = "",
 			lv = "";
-		if (eq_cra === "2" || eq_cra === "3" || eq_cra === "4") { //G•Ší
+		if (eq_cra === "2" || eq_cra === "3" || eq_cra === "4") { //Gæ­¦å™¨
 			sp = "_g";
 			if (eq_cra === "4") {
 				lv = +list[i].substring(6,8);
 				su = list[i].substring(8);
 			}
-		} else if (MST_Equip.SP.indexOf(eq_rui+eq_id) !== -1) { //SP•Ší
+		} else if (MST_Equip.SP.indexOf(eq_rui+eq_id) !== -1) { //SPæ­¦å™¨
 			sp = "_sp";
-		} else if (MST_Equip.Neko.indexOf(eq_rui+eq_id) !== -1) { //„‚Ë‚±•Ší
+		} else if (MST_Equip.Neko.indexOf(eq_rui+eq_id) !== -1) { //å‰›ã­ã“æ­¦å™¨
 			sp = "_n";
-		} else if (MST_Equip.Sinka.indexOf(eq_rui+eq_id) !== -1) { //i‰»•Ší
+		} else if (MST_Equip.Sinka.indexOf(eq_rui+eq_id) !== -1) { //é€²åŒ–æ­¦å™¨
 			sp = "_s";
 		}
 		txt += "<tr><td>" + BukiName[eq_rui] + "</td><td><a href='../buki/" + BukiId[eq_rui] + sp + ".htm#l" + eq_id + lv + "'>" + eq_name + "</a></td><td>" + Craft[eq_cra] + lv + "</td><td style=\"text-align:right;\">" + su + "</td></tr>";
@@ -291,8 +291,8 @@ if (MST_Equip.Sozai[item_id]) {
 }
 MST_Equip = setBougu();
 if (MST_Equip.Sozai[item_id]) {
-	var txt = "<table><tr><th style=\"width:4em;\">•”ˆÊ</th><th style=\"width:10em;\">–h‹ï–¼</th><th style=\"width:1.5em;\">LV</th><th style=\"width:2em;\">”</th></tr>";
-	var txts = "<table><tr><th style=\"width:4em;\">‘•ü•i</th><th style=\"width:10em;\">‘•ü–¼</th><th style=\"width:2em;\">”</th></tr>";
+	var txt = "<table><tr><th style=\"width:4em;\">éƒ¨ä½</th><th style=\"width:10em;\">é˜²å…·å</th><th style=\"width:1.5em;\">LV</th><th style=\"width:2em;\">æ•°</th></tr>";
+	var txts = "<table><tr><th style=\"width:4em;\">è£…é£¾å“</th><th style=\"width:10em;\">è£…é£¾å</th><th style=\"width:2em;\">æ•°</th></tr>";
 	for (var i = 0,su_sum = 0,list = MST_Equip.Sozai[item_id].split(","),m = list.length; i < m; i++) {
 		var eq_rui = list[i].charAt(0),
 			eq_id = list[i].substring(1,5),
@@ -301,14 +301,14 @@ if (MST_Equip.Sozai[item_id]) {
 			eq_name = MST_Equip.Name[eq_rui+eq_id],
 			sp = "";
 		if (eq_rui === "d" || eq_rui === "n" || eq_rui === "c" || eq_rui === "p" || eq_rui === "s" || eq_rui === "t" || eq_rui === "f" || eq_rui === "k" || eq_rui === "z") {
-			//‘•ü•iƒJƒt
+			//è£…é£¾å“ã‚«ãƒ•
 			txts += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/" + BouguId[eq_rui] + ".htm#l" + eq_id + "'>" + eq_name + "</a></td><td style=\"text-align:right;\">" + su + "</td></tr>";
 		} else {
-			//–h‹ï
+			//é˜²å…·
 			if (eq_name.lastIndexOf("SP") !== -1) {
-				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/" + BouguId[eq_rui] +  "sp.htm#l" + eq_id + "'>" + eq_name + "</a></td><td style=\"text-align:center;\">" + lv.replace("0","¶") + "</td><td style=\"text-align:right;\">" + su + "</td></tr>";
+				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/" + BouguId[eq_rui] +  "sp.htm#l" + eq_id + "'>" + eq_name + "</a></td><td style=\"text-align:center;\">" + lv.replace("0","ç”Ÿ") + "</td><td style=\"text-align:right;\">" + su + "</td></tr>";
 			} else {
-				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/_tree.htm#" + BouguId[eq_rui].charAt(0) + eq_id + "'>" + eq_name + "</a></td><td style=\"text-align:center;\">" + lv.replace("0","¶") + "</td><td style=\"text-align:right;\">" + su + "</td></tr>";
+				txt += "<tr><td>" + BouguName[eq_rui] + "</td><td><a href='../bougu/_tree.htm#" + BouguId[eq_rui].charAt(0) + eq_id + "'>" + eq_name + "</a></td><td style=\"text-align:center;\">" + lv.replace("0","ç”Ÿ") + "</td><td style=\"text-align:right;\">" + su + "</td></tr>";
 			}
 		su_sum += +su;
 		}
@@ -324,11 +324,11 @@ document.getElementsByTagName("table")[0].style.width = "auto";
 document.getElementById("loading").style.display="none";
 document.getElementById("b_yt").disabled = false;
 
-//ƒAƒ“ƒ[ƒh‘Ş”ğ
+//ã‚¢ãƒ³ãƒ­ãƒ¼ãƒ‰é€€é¿
 addEvent(window,"unload",function () {
 document.cookie = "item=" + [item_id,Number(document.getElementById("b_yt").disabled),document.documentElement.scrollTop].join(":");
 });
-//ƒIƒ“ƒ[ƒh
+//ã‚ªãƒ³ãƒ­ãƒ¼ãƒ‰
 var w = document.cookie;
 if (w.indexOf("item=" + item_id) !== -1) {
 	w = w.split("item=")[1].split(":");

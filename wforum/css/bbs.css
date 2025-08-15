@@ -7,11 +7,11 @@ a:hover {
 	text-decoration: underline;
 	color: #dd0000;
 }
-/* ƒƒCƒ“‹LŽ–”Ô†F */
+/* ãƒ¡ã‚¤ãƒ³è¨˜äº‹ç•ªå·è‰² */
 span.num {
 	color: #008000;
 }
-/* ŒŸõE‰ß‹ŽƒƒO‰æ–Êƒ^ƒCƒgƒ‹”wŒiF */
+/* æ¤œç´¢ãƒ»éŽåŽ»ãƒ­ã‚°ç”»é¢ã‚¿ã‚¤ãƒˆãƒ«èƒŒæ™¯è‰² */
 div.obi {
 	text-align: center;
 	padding: 2px;
@@ -42,12 +42,12 @@ img.capt {
 td.small {
 	font-size: 75%;
 }
-/* ŒfŽ¦”Âƒ^ƒCƒgƒ‹ */
+/* æŽ²ç¤ºæ¿ã‚¿ã‚¤ãƒˆãƒ« */
 h1 {
 	font-size: 200%;
 	margin-bottom: 0;
 }
-/* ’†‰›Šñ‚¹ */
+/* ä¸­å¤®å¯„ã› */
 div.main {
 	text-align: center;
 }
@@ -55,7 +55,7 @@ div.main {
 div.clear {
 	clear: both;
 }
-/* ƒƒCƒ“‹LŽ–‘•ü */
+/* ãƒ¡ã‚¤ãƒ³è¨˜äº‹è£…é£¾ */
 div.art {
 	width: 92%;
 	background: #fff;
@@ -64,24 +64,24 @@ div.art {
 	border: 1px solid gray;
 	margin: 1.2em auto;
 }
-/* ƒƒCƒ“‹LŽ–ƒ^ƒCƒgƒ‹ */
+/* ãƒ¡ã‚¤ãƒ³è¨˜äº‹ã‚¿ã‚¤ãƒˆãƒ« */
 div.art strong {
 	color: #008000;
 }
 .ta-r {
 	text-align: right !important;
 }
-/* ‰ÆƒAƒCƒRƒ“ˆÊ’u */
+/* å®¶ã‚¢ã‚¤ã‚³ãƒ³ä½ç½® */
 img.icon {
 	vertical-align: middle;
 	border: none;
 	margin: 0 2px;
 }
-/* “Šeƒ{ƒ^ƒ“ */
+/* æŠ•ç¨¿ãƒœã‚¿ãƒ³ */
 input.btn {
 	width: 110px;
 }
-/* ƒAƒNƒZƒX§ŒÀ—p */
+/* ã‚¢ã‚¯ã‚»ã‚¹åˆ¶é™ç”¨ */
 table.enter {
 	margin:80px auto;
 	width:400px;
